@@ -44,6 +44,7 @@ router.post('/',
     }
   });
 router.patch('/:id',
+  verifyToken,
   validatorHandler(getUserSchema, 'params'),
   validatorHandler(updateUserSchema, 'body'),
   async (req, res, next) => {
@@ -61,6 +62,7 @@ router.patch('/:id',
     }
   });
 router.delete('/:id',
+  verifyToken,
   validatorHandler(getUserSchema, 'params'),
   async (req, res, next) => {
     try {
